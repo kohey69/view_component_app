@@ -5,7 +5,10 @@
   <%= render BlogComponent.new do |component| %>
     <% BlogPost.all.each do |blog_post| %>
       <% component.with_post do %>
-        <div><%= blog_post.name %></div>
+        <div>
+          <span><%= blog_post.name %></span>
+          <span class="small text-muted"><%= blog_post.updated_at.strftime("%Y年%m月%d日") %></span>
+        </div>
       <% end %>
     <% end %>
   <% end %>
