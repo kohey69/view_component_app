@@ -5,11 +5,16 @@
 <h1>Blog posts</h1>
 
 <div id="blog_posts">
-  <% @blog_posts.each do |blog_post| %>
-    <%= render blog_post %>
-    <p>
-      <%= link_to "Show this blog post", blog_post.url %>
-    </p>
+  <%= render BlogComponent.new do |component| %>
+    <% component.with_header do %>
+      <%= link_to "My blog", root_path %>
+    <% end %>
+
+    <% BlogPost.all.each do |blog_post| %>
+      <% component.with_post do %>
+        <%= link_to blog_post.name, blog_post.url %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
