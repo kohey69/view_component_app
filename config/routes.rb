@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "blog_posts#index"
+  root "home#index"
 
-  resources :blog_posts, path: "blog", param: :name, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :blog_posts, path: "blog", param: :name
 end
