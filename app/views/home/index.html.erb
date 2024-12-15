@@ -1,2 +1,12 @@
-<h1>My blog</h1>
+<h1>RootPage</h1>
 <p><%= link_to "To blog list", blog_posts_path %></p>
+
+<div id="blog_posts" class="blog-posts">
+  <%= render BlogComponent.new do |component| %>
+    <% BlogPost.all.each do |blog_post| %>
+      <% component.with_post do %>
+        <div><%= blog_post.name %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
