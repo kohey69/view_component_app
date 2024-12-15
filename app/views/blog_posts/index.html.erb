@@ -5,17 +5,17 @@
 <h1>Blog posts</h1>
 
 <div id="blog_posts">
-  <% header = capture do %>
-    <%= link_to "My blog", root_path %>
-  <% end %>
+  <%= render BlogComponent.new do |component| %>
+    <% component.with_header do %>
+      <%= link_to "My blog", root_path %>
+    <% end %>
 
-  <% posts = BlogPost.all.map do |blog_post| %>
-    <% capture do %>
-      <%= link_to blog_post.name, blog_post.url %>
+    <% BlogPost.all.each do |blog_post| %>
+      <% component.with_post do %>
+        <%= link_to blog_post.name, blog_post.url %>
+      <% end %>
     <% end %>
   <% end %>
-
-  <%= render "blogs", header:, posts: %>
 </div>
 
 <%= link_to "New blog post", new_blog_post_path %>
