@@ -1,2 +1,15 @@
-<h1>My blog</h1>
+<h1>RootPage</h1>
 <p><%= link_to "To blog list", blog_posts_path %></p>
+
+<div id="blog_posts" class="blog-posts">
+  <%= render BlogComponent.new do |component| %>
+    <% BlogPost.all.each do |blog_post| %>
+      <% component.with_post do %>
+        <div>
+          <span><%= blog_post.name %></span>
+          <span class="small text-muted"><%= blog_post.updated_at.strftime("%Y年%m月%d日") %></span>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
