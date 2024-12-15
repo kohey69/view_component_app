@@ -1,2 +1,49 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+body {
+  padding: 50px 150px;
+}
+
+h1 {
+  font-size: 30px;
+  margin: 0;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 auto;
+
+  a {
+    padding: 10px;
+    box-shadow: 0 0 15px -5px #777777;
+    border-radius: 10px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  h1 {
+    a {
+      display: inline-block;
+      box-shadow: none;
+    }
+  }
+}

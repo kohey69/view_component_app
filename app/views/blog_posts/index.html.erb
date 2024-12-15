@@ -2,9 +2,7 @@
 
 <% content_for :title, "Blog posts" %>
 
-<h1>Blog posts</h1>
-
-<div id="blog_posts">
+<div id="blog_posts" class="blog-posts">
   <%= render BlogComponent.new do |component| %>
     <% component.with_header do %>
       <%= link_to "My blog", root_path %>
@@ -16,6 +14,6 @@
       <% end %>
     <% end %>
   <% end %>
-</div>
 
-<%= link_to "New blog post", new_blog_post_path %>
+  <%= link_to "New blog post", new_blog_post_path, class: 'btn btn-primary' %>
+</div>
